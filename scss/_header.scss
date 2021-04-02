@@ -1,0 +1,397 @@
+.header-top {
+  background-color: #f7f7f7;
+  .util {
+    height: 36px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    li {
+      position: relative;
+      line-height: 36px;
+    }
+    li + li {
+      margin: 0 0 0 20px;
+      &::before {
+        @include element(1px, 12px, 13px, -10px);
+        background-color: $color_gray;
+      }
+    }
+    li:nth-child(1) a {
+      padding: 0 10px 0;
+    }
+    li:nth-child(2) a {
+      width: 36px;
+      height: 36px;
+      background: url("../imgs/common/icon_mypage.png") no-repeat center;
+    }
+    li:nth-child(3) a {
+      padding: 0 0 0 36px;
+      &::before {
+        @include element(36px, 36px);
+        background: url("../imgs/common/icon_basket.png") no-repeat center;
+      }
+      span {
+        color: #fff;
+        font-size: 0.75em;
+        padding: 1px 5px;
+        background-color: $color_gray;
+        border-radius: 50%;
+      }
+    }
+    a {
+      color: $color_gray;
+      font-size: $font-size_small;
+    }
+  }
+}
+.header-nav {
+  white-space: nowrap;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo img {
+    min-width: 160px !important;
+  }
+  .gnb-box {
+    height: 84px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > li {
+      margin: 0 0 0 100px;
+    }
+    .btn_kakao {
+      width: 32px;
+      height: 32px;
+      background: url("../imgs/common/icon_kakao.png") no-repeat center;
+    }
+  }
+
+  .gnb {
+    display: flex;
+  }
+  .gnb-title {
+    position: relative;
+    line-height: 84px;
+    .depth {
+      top: 98%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 170px;
+      color: #fff;
+      padding: 20px 0;
+      background-color: $color_primary;
+      > li {
+        line-height: 40px;
+      }
+    }
+    &:hover .depth {
+      top: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .gnb-title + li {
+    margin: 0 0 0 60px;
+  }
+  .category-link {
+    display: flex;
+    position: relative;
+  }
+  .categories {
+    a {
+      transition: 0.3s;
+    }
+    > a {
+      color: $color_primary;
+      font-size: $font-size_small;
+      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.5);
+      @include border(10px 20px, 1px, $color_primary);
+      &:hover,
+      &.onDepth {
+        background-color: rgba(238, 115, 153, 0.1);
+      }
+    }
+    .depth {
+      top: 0;
+      left: 0;
+      width: 100%;
+      margin: 45px 0 0;
+      font-size: $font-size_small;
+      border-radius: 20px;
+      @include border(10px 0, 1px, $color_primary);
+      background-color: #fff;
+      overflow: hidden;
+      > li {
+        line-height: 25px;
+      }
+      a:hover {
+        color: $color_primary;
+      }
+    }
+    &:hover .depth {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .categories:nth-child(1) a {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .categories:nth-child(2) a {
+    margin: 0 0 0 -1px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .depth {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    transition: 0.3s;
+  }
+}
+
+// 1024px 이하 햄버거 메뉴
+.mobile {
+  .hamburger {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    a > span {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      top: 11px;
+      background-color: $color_black;
+      &::before {
+        @include element(26px, 4px, -11px, none);
+        background-color: $color_black;
+        right: 0;
+      }
+      &::after {
+        @include element(14px, 4px, 11px, none);
+        right: 0;
+        background-color: $color_black;
+      }
+    }
+    &:hover {
+      a > span::before {
+        top: -6px;
+        width: 14px;
+        transform: rotate(45deg);
+        animation: rotate 0.3s;
+      }
+      a > span::after {
+        top: 6px;
+        width: 14px;
+        transform: rotate(-45deg);
+        animation: rotate 0.3s;
+      }
+    }
+  }
+}
+// 1024px 이하 lnb
+.aside {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+}
+.btn-mo_close {
+  position: absolute;
+  top: 15px;
+  left: 305px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background-color: transparent;
+  &::before,
+  &::after {
+    @include element(30px, 4px, 10px);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    transition: 0.3s 0.3s;
+  }
+  &:hover::before {
+    transform: rotate(-45deg);
+  }
+  &:hover::after {
+    transform: rotate(45deg);
+  }
+}
+.aside-wrap {
+  width: 300px;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #fff;
+  > li {
+    @include padding(15px);
+  }
+  .users-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size_small;
+    li:nth-child(1) {
+      color: $color_gray;
+    }
+    li:nth-child(2) {
+      display: flex;
+      a {
+        color: $color_primary;
+        @include border(5px 10px, 1px);
+        border-radius: 3px;
+        + a {
+          margin: 0 0 0 3px;
+          color: $color_black;
+          border-color: $color_gray;
+        }
+      }
+    }
+    li a:hover {
+      color: $color_black;
+      border-color: $color_black;
+    }
+  }
+  > li:nth-child(2) {
+    @include padding(25px 15px);
+    background-color: $color_primary;
+  }
+  .lnb {
+    color: #fff;
+    .lnb-title {
+      > a {
+        font-size: $font-size_mobileLnb;
+        line-height: 1.8;
+        &:hover,
+        .activeLnb {
+          color: $color-moblie-hover;
+        }
+      }
+      + li {
+        margin: 10px 0 0;
+      }
+    }
+  }
+  .depth {
+    display: none;
+    font-size: $font-size_small;
+    margin: 10px;
+    > li {
+      + li {
+        margin: 5px 0 0;
+      }
+      a {
+        position: relative;
+        display: inline-block;
+        line-height: 1.6;
+        @include padding(5px 0);
+        &::after {
+          @include element(0, 1px, 100%);
+          background-color: $color-moblie-hover;
+        }
+        &.on {
+          &::after {
+            animation: road 0.4s;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .category-link {
+    display: flex;
+    justify-content: center;
+    .categories > a {
+      color: $color_primary;
+      font-size: $font-size_small;
+      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.5);
+      @include border(10px 20px, 1px, $color_primary);
+      transition: 0.3s;
+      &:hover {
+        background-color: rgba(238, 115, 153, 0.1);
+      }
+    }
+    .categories:nth-child(1) a {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+    .categories:nth-child(2) a {
+      margin: 0 0 0 -1px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+  .m-util {
+    display: flex;
+    justify-content: space-between;
+    a {
+      @include padding(50px 0 0);
+      font-size: $font-size_small;
+    }
+    li:nth-child(1) a {
+      background: url("../imgs/common/mo_icon_mypage.png") no-repeat center 10px;
+      background-size: 70%;
+    }
+    li:nth-child(2) a {
+      background: url("../imgs/common/mo_icon_cart.png") no-repeat center 10px;
+      background-size: 60%;
+    }
+    li:nth-child(3) a {
+      background: url("../imgs/common/mo_icon_delivery.png") no-repeat center
+        10px;
+      background-size: 60%;
+    }
+    li:nth-child(4) a {
+      background: url("../imgs/common/mo_icon_wish.png") no-repeat center 10px;
+      background-size: 50%;
+    }
+  }
+  .goods {
+    padding: 30px 0 0;
+    p {
+      font-size: $font-size_normal;
+      line-height: 1.5;
+      @include padding(10px 15px);
+    }
+    .goods-list {
+      @include border(25px 15px, 1px, $color_gray);
+      border-left: 0;
+      border-right: 0;
+      text-align: center;
+      span {
+        color: $color_gray;
+        font-size: $font-size_small;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+}
+@keyframes road {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -1,0 +1,63 @@
+// common
+.wrap {
+  min-width: 300px;
+  .inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    @include padding(0 50px);
+  }
+  .blind {
+    @include blind;
+  }
+}
+
+// max-width 1024px 이상 일 때
+@include otherPoint(1600px) {
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 55px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 35px;
+    }
+  }
+}
+@include otherPoint(1366px) {
+  .wrap .inner {
+    padding: 0 30px;
+  }
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 40px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 20px;
+    }
+  }
+}
+@include otherPoint(1280px) {
+  .wrap .inner {
+    padding: 0 20px;
+  }
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 10px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 10px;
+    }
+  }
+}
+// width 768px ~ 1023px까지
+@include desktop {
+  .header-top {
+    .util li:nth-child(3) {
+      display: none;
+    }
+  }
+  .header-nav {
+    .gnb-box > li:nth-child(1) {
+      display: none;
+    }
+  }
+}
