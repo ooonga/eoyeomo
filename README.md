@@ -15,3 +15,4 @@
 6. 개별 페이지 링크　[`MainPage`](http://go0lee.cafe24.com/eoyeomo/index.html){: target="_blank"}
 
 ---
+[건망증이 심한 엔지니어](https://techstock.biz){:target="_blank"}
