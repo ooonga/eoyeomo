@@ -12,6 +12,6 @@
    -　**CSS mediaquery** + **JS matchMedia** 이용한 반응형 사이트 구현  
    -　**CSS Animation** + **Vanilla JS** 사용하여 이미지 동적 구현
 
-6. 개별 페이지 링크　<a href="./eoyeomo/index.html">`MainPage`</a>
+6. 개별 페이지 링크　<a href="http://go0lee.cafe24.com/eoyeomo/index.html">`MainPage`</a>
 
 ---
