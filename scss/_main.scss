@@ -1,0 +1,27 @@
+// 상단 이동 버튼
+.top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 36px;
+  height: 36px;
+  color: $color_black;
+  font-size: 0.75em;
+  background: #f4f4f4 url("../imgs/common/icon_arrowTop.png") no-repeat;
+  background-position: center 3px;
+  background-size: 60%;
+  padding: 18px 0 0;
+  border-radius: 4px;
+}
+// 메인 비주얼
+.main-container {
+}
+.main-visual {
+  .object {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+}

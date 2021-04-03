@@ -1,0 +1,73 @@
+// used font family jua
+@mixin usedFontJua {
+  font-family: "Jua", sans-serif;
+  font-size: 1.563em;
+}
+
+// blind
+@mixin blind {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+// ::pseudo-element
+@mixin element($width, $height, $top: 0, $left: 0) {
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+// box-sizing : border-box
+@mixin border($padding: 0, $border: 0, $color: $color_primary) {
+  padding: $padding;
+  border: $border solid $color;
+  box-sizing: border-box;
+}
+// box-sizing : border-box
+@mixin padding($padding) {
+  padding: $padding;
+  box-sizing: border-box;
+}
+
+// float align
+@mixin float {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// Animation Settings & Execution
+@mixin keyframes($animationName) {
+  @content;
+}
+
+// mediaquery
+@mixin desktop {
+  @media screen and (max-width:#{$desktop}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width:#{$tablet}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width:#{$mobile}) {
+    @content;
+  }
+}
+@mixin otherPoint($size) {
+  @media screen and (max-width:#{$size}) {
+    @content;
+  }
+}

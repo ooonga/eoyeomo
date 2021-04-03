@@ -1,0 +1,149 @@
+// common
+.wrap {
+  min-width: 300px;
+  .inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    @include padding(0 50px);
+  }
+  .blind {
+    @include blind;
+  }
+}
+.ft_info {
+  li:nth-child(2) .slash {
+    display: none;
+  }
+}
+// max-width 1024px 이상 일 때
+@include otherPoint(1600px) {
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 55px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 35px;
+    }
+  }
+  .ft_info {
+    li {
+      display: block;
+    }
+    li:nth-child(3) p .slash:nth-child(1) {
+      display: none;
+    }
+  }
+}
+@include otherPoint(1366px) {
+  .wrap .inner {
+    padding: 0 30px;
+  }
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 40px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 20px;
+    }
+  }
+}
+@include otherPoint(1280px) {
+  .wrap .inner {
+    padding: 0 20px;
+  }
+  .header-nav {
+    .gnb-box > li {
+      margin: 0 0 0 10px;
+    }
+    .gnb-title + li {
+      margin: 0 0 0 10px;
+    }
+  }
+  .ft-right {
+    display: block;
+  }
+  .ft_info,
+  .ft-right > div,
+  .ft_menu > a {
+    margin: 0 0 0 10px;
+  }
+}
+// width 768px ~ 1023px까지
+@include desktop {
+  .header-top {
+    .util li:nth-child(3) {
+      display: none;
+    }
+  }
+  .gnb {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  footer .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ft-right {
+    width: 100%;
+  }
+  .ft_menu {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .ft_info {
+    width: 100%;
+    margin: 20px 0 10px;
+    li {
+      display: inline-block;
+    }
+    li:nth-child(3) p .slash:nth-child(1) {
+      display: inline-block;
+    }
+  }
+  .ft-right > div {
+    margin: 10px 0 0;
+  }
+  .ft_menu > a {
+    margin: 0;
+  }
+}
+// width 421px ~ 767px까지
+@include tablet {
+  .header-top,
+  .category-link {
+    display: none;
+  }
+  .ft_logo {
+    margin: 0 auto;
+  }
+  .ft_info {
+    text-align: center;
+    li {
+      display: block;
+    }
+    li:nth-child(1) {
+      justify-content: center;
+    }
+    li:nth-child(3) p .slash:nth-child(1) {
+      display: none;
+    }
+  }
+  .ft-right {
+    text-align: center;
+  }
+  .ft_sns,
+  .ft-depth {
+    justify-content: center;
+  }
+  .ft_menu {
+    flex-wrap: wrap;
+    ul {
+      width: 100%;
+    }
+    > a {
+      margin: 20px auto 0;
+    }
+  }
+}

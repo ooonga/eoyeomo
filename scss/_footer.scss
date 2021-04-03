@@ -1,0 +1,79 @@
+footer {
+  position: relative;
+  background-color: #f7f7f7;
+  padding: 50px 0;
+  white-space: nowrap;
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  strong {
+    font-weight: 500;
+  }
+}
+.ft_logo {
+  img {
+    min-width: 160px !important;
+  }
+}
+.ft_info {
+  margin: 0 0 0 20px;
+  color: $color_gray;
+  font-size: $font-size_small;
+  li {
+    display: inline-block;
+    line-height: 2;
+  }
+  li:nth-child(1) {
+    display: flex;
+  }
+}
+.ft-right {
+  display: flex;
+  align-items: center;
+  > div {
+    margin: 0 0 0 20px;
+  }
+}
+.ft_sns {
+  display: flex;
+  a {
+    width: 36px;
+    height: 36px;
+  }
+  a + a {
+    margin: 0 0 0 10px;
+  }
+}
+.slash {
+  padding: 0 8px;
+}
+.ft_menu {
+  font-size: $font-size_small;
+  display: flex;
+  align-items: center;
+  > a {
+    margin: 0 0 0 20px;
+    width: 60px;
+    height: 60px;
+  }
+}
+.ft-depth {
+  display: flex;
+  > li {
+    position: relative;
+    line-height: 2.4;
+    + li {
+      margin: 0 0 0 20px;
+    }
+    + li::before {
+      @include element(1px, 12px, 10px, -10px);
+      background-color: $color_gray;
+    }
+  }
+}
+.ft-menu_copy {
+  color: $color_gray;
+  font-size: 0.75em;
+}
