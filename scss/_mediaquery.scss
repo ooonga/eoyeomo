@@ -10,11 +10,15 @@
     @include blind;
   }
 }
+<<<<<<< HEAD
 .ft_info {
   li:nth-child(2) .slash {
     display: none;
   }
 }
+=======
+
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 // max-width 1024px 이상 일 때
 @include otherPoint(1600px) {
   .header-nav {
@@ -25,6 +29,7 @@
       margin: 0 0 0 35px;
     }
   }
+<<<<<<< HEAD
   .ft_info {
     li {
       display: block;
@@ -33,6 +38,8 @@
       display: none;
     }
   }
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 @include otherPoint(1366px) {
   .wrap .inner {
@@ -59,6 +66,7 @@
       margin: 0 0 0 10px;
     }
   }
+<<<<<<< HEAD
   .ft-right {
     display: block;
   }
@@ -67,6 +75,8 @@
   .ft_menu > a {
     margin: 0 0 0 10px;
   }
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 // width 768px ~ 1023px까지
 @include desktop {
@@ -75,6 +85,7 @@
       display: none;
     }
   }
+<<<<<<< HEAD
   .gnb {
     display: none;
   }
@@ -146,4 +157,11 @@
       margin: 20px auto 0;
     }
   }
+=======
+  .header-nav {
+    .gnb-box > li:nth-child(1) {
+      display: none;
+    }
+  }
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }

@@ -69,7 +69,11 @@
     }
   }
 
+<<<<<<< HEAD
   .gnb > ul {
+=======
+  .gnb {
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
     display: flex;
   }
   .gnb-title {
@@ -96,7 +100,11 @@
   .gnb-title + li {
     margin: 0 0 0 60px;
   }
+<<<<<<< HEAD
   .category-link > ul {
+=======
+  .category-link {
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
     display: flex;
     position: relative;
   }
@@ -157,7 +165,10 @@
 
 // 1024px 이하 햄버거 메뉴
 .mobile {
+<<<<<<< HEAD
   display: none;
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   .hamburger {
     position: relative;
     width: 26px;
@@ -211,6 +222,14 @@
   left: 305px;
   width: 30px;
   height: 30px;
+<<<<<<< HEAD
+=======
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   background-color: transparent;
   &::before,
   &::after {
@@ -219,6 +238,7 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     transition: 0.3s 0.3s;
+<<<<<<< HEAD
     opacity: 0;
   }
   &.open {
@@ -236,6 +256,14 @@
     &::after {
       transform: rotate(0);
     }
+=======
+  }
+  &:hover::before {
+    transform: rotate(-45deg);
+  }
+  &:hover::after {
+    transform: rotate(45deg);
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   }
 }
 .aside-wrap {

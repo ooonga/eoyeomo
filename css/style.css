@@ -56,6 +56,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
+<<<<<<< HEAD
   vertical-align: middle;
 }
 
@@ -179,6 +180,9 @@ footer strong {
   height: 100%;
   position: absolute;
   z-index: -1;
+=======
+  vertical-align: center;
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 
 .header-top {
@@ -263,7 +267,11 @@ footer strong {
   height: 32px;
   background: url("../imgs/common/icon_kakao.png") no-repeat center;
 }
+<<<<<<< HEAD
 .header-nav .gnb > ul {
+=======
+.header-nav .gnb {
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   display: flex;
 }
 .header-nav .gnb-title {
@@ -290,7 +298,11 @@ footer strong {
 .header-nav .gnb-title + li {
   margin: 0 0 0 60px;
 }
+<<<<<<< HEAD
 .header-nav .category-link > ul {
+=======
+.header-nav .category-link {
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   display: flex;
   position: relative;
 }
@@ -349,9 +361,12 @@ footer strong {
   transition: 0.3s;
 }
 
+<<<<<<< HEAD
 .mobile {
   display: none;
 }
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 .mobile .hamburger {
   position: relative;
   width: 26px;
@@ -413,6 +428,14 @@ footer strong {
   left: 305px;
   width: 30px;
   height: 30px;
+<<<<<<< HEAD
+=======
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
   background-color: transparent;
 }
 .btn-mo_close::before, .btn-mo_close::after {
@@ -426,6 +449,7 @@ footer strong {
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   transition: 0.3s 0.3s;
+<<<<<<< HEAD
   opacity: 0;
 }
 .btn-mo_close.open::before {
@@ -439,6 +463,15 @@ footer strong {
 .btn-mo_close.close::before, .btn-mo_close.close::after {
   transform: rotate(0);
 }
+=======
+}
+.btn-mo_close:hover::before {
+  transform: rotate(-45deg);
+}
+.btn-mo_close:hover::after {
+  transform: rotate(45deg);
+}
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 
 .aside-wrap {
   width: 300px;
@@ -631,10 +664,13 @@ footer strong {
   clip: rect(0, 0, 0, 0);
 }
 
+<<<<<<< HEAD
 .ft_info li:nth-child(2) .slash {
   display: none;
 }
 
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 @media screen and (max-width: 1600px) {
   .header-nav .gnb-box > li {
     margin: 0 0 0 55px;
@@ -642,6 +678,7 @@ footer strong {
   .header-nav .gnb-title + li {
     margin: 0 0 0 35px;
   }
+<<<<<<< HEAD
 
   .ft_info li {
     display: block;
@@ -649,6 +686,8 @@ footer strong {
   .ft_info li:nth-child(3) p .slash:nth-child(1) {
     display: none;
   }
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 @media screen and (max-width: 1366px) {
   .wrap .inner {
@@ -673,6 +712,7 @@ footer strong {
   .header-nav .gnb-title + li {
     margin: 0 0 0 10px;
   }
+<<<<<<< HEAD
 
   .ft-right {
     display: block;
@@ -683,12 +723,15 @@ footer strong {
 .ft_menu > a {
     margin: 0 0 0 10px;
   }
+=======
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 @media screen and (max-width: 1023px) {
   .header-top .util li:nth-child(3) {
     display: none;
   }
 
+<<<<<<< HEAD
   .gnb {
     display: none;
   }
@@ -771,6 +814,11 @@ footer strong {
   .ft_menu > a {
     margin: 20px auto 0;
   }
+=======
+  .header-nav .gnb-box > li:nth-child(1) {
+    display: none;
+  }
+>>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 
 /*# sourceMappingURL=style.css.map */
