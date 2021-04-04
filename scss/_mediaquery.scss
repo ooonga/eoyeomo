@@ -1,26 +1,27 @@
 // common
 .wrap {
-  min-width: 300px;
-  .inner {
-    max-width: 1900px;
-    margin: 0 auto;
-    @include padding(0 50px);
-  }
+  min-width: 340px;
   .blind {
     @include blind;
   }
+  .br {
+    display: none;
+  }
 }
-<<<<<<< HEAD
+.inner {
+  max-width: 1900px;
+  margin: 0 auto;
+  @include padding(0 50px);
+}
+// **** //// f o o t e r //// **** //
 .ft_info {
   li:nth-child(2) .slash {
     display: none;
   }
 }
-=======
-
->>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 // max-width 1024px 이상 일 때
 @include otherPoint(1600px) {
+  // **** //// h e a d e r //// **** //
   .header-nav {
     .gnb-box > li {
       margin: 0 0 0 55px;
@@ -29,7 +30,11 @@
       margin: 0 0 0 35px;
     }
   }
-<<<<<<< HEAD
+  // **** //// m a i n //// **** //
+  .main-visual {
+    min-height: 800px;
+  }
+  // **** //// f o o t e r ////  **** //
   .ft_info {
     li {
       display: block;
@@ -38,13 +43,12 @@
       display: none;
     }
   }
-=======
->>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 @include otherPoint(1366px) {
   .wrap .inner {
     padding: 0 30px;
   }
+  // **** //// h e a d e r ////  **** //
   .header-nav {
     .gnb-box > li {
       margin: 0 0 0 40px;
@@ -53,11 +57,18 @@
       margin: 0 0 0 20px;
     }
   }
+  // **** //// m a i n //// **** //
+  .main-visual {
+    .object {
+      background-position: center top;
+    }
+  }
 }
 @include otherPoint(1280px) {
   .wrap .inner {
     padding: 0 20px;
   }
+  // **** //// h e a d e r //// **** //
   .header-nav {
     .gnb-box > li {
       margin: 0 0 0 10px;
@@ -66,7 +77,29 @@
       margin: 0 0 0 10px;
     }
   }
-<<<<<<< HEAD
+  // **** //// m a i n //// **** //
+  .main-visual {
+    min-height: 700px;
+    .text {
+      .visual-title {
+        font-size: 70px;
+      }
+      > a {
+        margin: 50px 0 0;
+      }
+    }
+  }
+  .about {
+    .text {
+      .section-em {
+        width: 100%;
+      }
+      .ex-text {
+        width: 100%;
+      }
+    }
+  }
+  // **** //// f o o t e r ////  **** //
   .ft-right {
     display: block;
   }
@@ -75,23 +108,52 @@
   .ft_menu > a {
     margin: 0 0 0 10px;
   }
-=======
->>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
 // width 768px ~ 1023px까지
 @include desktop {
+  // **** //// h e a d e r //// **** //
   .header-top {
     .util li:nth-child(3) {
       display: none;
     }
   }
-<<<<<<< HEAD
   .gnb {
     display: none;
   }
   .mobile {
     display: block;
   }
+  // **** //// m a i n //// **** //
+  .main-visual {
+    min-height: 600px;
+    .text {
+      .visual-title {
+        font-size: 60px;
+      }
+      > a {
+        height: 40px;
+        padding: 0 0 0 55px;
+        margin: 30px 0 0;
+        &::before {
+          width: 40px;
+        }
+      }
+      .br {
+        display: block;
+      }
+    }
+  }
+  .about {
+    .items-box {
+      .item-top {
+        font-size: 18px;
+      }
+      .item a {
+        padding: 15% 10%;
+      }
+    }
+  }
+  // **** //// f o o t e r ////  **** //
   footer .inner {
     flex-direction: column;
     align-items: flex-start;
@@ -122,10 +184,50 @@
 }
 // width 421px ~ 767px까지
 @include tablet {
+  // **** //// h e a d e r //// **** //
   .header-top,
   .category-link {
     display: none;
   }
+  // **** //// m a i n //// **** //
+  .main-visual {
+    margin: 0;
+    min-height: 500px;
+    .text {
+      top: 200px;
+      .visual-title {
+        font-size: 44px;
+      }
+      > a {
+        height: 30px;
+        padding: 0 0 0 50px;
+        margin: 30px 0 0;
+        &::before {
+          width: 30px;
+        }
+      }
+    }
+  }
+  .about {
+    margin: 100px 0 0;
+    .items-box .item {
+      width: 48%;
+      height: 220px;
+      &:hover {
+        border-bottom-right-radius: 40px;
+      }
+    }
+    .text {
+      margin: 0 0 30px;
+      .section-em {
+        font-size: 30px;
+      }
+      .ex-text {
+        margin: 20px 0 0;
+      }
+    }
+  }
+  // **** //// f o o t e r ////  **** //
   .ft_logo {
     margin: 0 auto;
   }
@@ -157,11 +259,51 @@
       margin: 20px auto 0;
     }
   }
-=======
-  .header-nav {
-    .gnb-box > li:nth-child(1) {
-      display: none;
+}
+// width min ~ 420px까지
+@include mobile {
+  // **** //// m a i n //// **** //
+  .main-visual {
+    .text {
+      .visual-title {
+        font-size: 36px;
+      }
     }
   }
->>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
+  .about {
+    .items-box {
+      .item-top {
+        font-size: 1em;
+        padding: 24px 0 0;
+      }
+      .item {
+        height: 200px;
+        &:hover {
+          border-bottom-right-radius: 30px;
+        }
+      }
+    }
+    .text {
+      margin: 0 0 20px;
+      .section-em {
+        font-size: 24px;
+      }
+      .ex-text {
+        margin: 10px 0 0;
+      }
+    }
+  }
+  // **** //// f o o t e r ////  **** //
+  .ft_info {
+    font-size: 13px;
+    li:nth-child(1) {
+      flex-wrap: wrap;
+      .slash {
+        display: none;
+      }
+      > strong {
+        width: 100%;
+      }
+    }
+  }
 }

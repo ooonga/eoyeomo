@@ -29,7 +29,7 @@ body {
   color: $color_black;
   font-family: $font-ko;
   font-size: 100%;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 aside,
@@ -53,7 +53,6 @@ a {
 img {
   max-width: 100%;
   height: auto;
-<<<<<<< HEAD
   vertical-align: middle;
 }
 
@@ -63,7 +62,4 @@ button {
   border: 0;
   outline: 0;
   appearance: none;
-=======
-  vertical-align: center;
->>>>>>> eca552b28c818d127c3306e68ca2380b33af25b1
 }
