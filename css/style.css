@@ -158,6 +158,9 @@ footer strong {
   font-size: 0.75em;
 }
 
+/* ----------------------------------- /
+/            상단 이동 버튼             / 
+/ ----------------------------------- */
 .top {
   position: fixed;
   right: 20px;
@@ -173,6 +176,9 @@ footer strong {
   border-radius: 4px;
 }
 
+/* ----------------------------------- /
+/               메인 비주얼             / 
+/ ----------------------------------- */
 .main-container .inner {
   position: relative;
   max-width: 1500px;
@@ -231,6 +237,9 @@ footer strong {
   background-size: 50%;
 }
 
+/* ----------------------------------- /
+/          섹션 2 어여모 안내           / 
+/ ----------------------------------- */
 .about {
   margin: 200px 0 0;
 }
@@ -317,6 +326,9 @@ footer strong {
   transform: rotate(-25deg);
 }
 
+/* ----------------------------------- /
+/           섹션 3 건강 정보            / 
+/ ----------------------------------- */
 .health .object {
   display: none;
   width: 680px;
@@ -325,6 +337,72 @@ footer strong {
   background: linear-gradient(-145deg, #f7c2c8 15%, #cec0eb 90%);
 }
 
+/* ----------------------------------- /
+/            섹션 4 공지사항            / 
+/ ----------------------------------- */
+/* ----------------------------------- /
+/           섹션 5 관련 링크            / 
+/ ----------------------------------- */
+.banner {
+  margin: 0 0 100px 0;
+}
+.banner .items-box .item {
+  width: 32%;
+  height: 315px;
+}
+.banner .items-box .item:nth-child(1) {
+  background: linear-gradient(135deg, #f6dda8 20%, #ffd5b5 80%);
+}
+.banner .items-box .item:nth-child(2) {
+  background: linear-gradient(135deg, #cec0eb 20%, #c8e9ff 70%);
+}
+.banner .items-box .item:nth-child(3) {
+  background: linear-gradient(135deg, #ffacc6 20%, #ffe6b2 85%);
+}
+.banner .items-box .item:nth-child(3) img {
+  right: -10px;
+}
+.banner .items-box .item-top {
+  position: relative;
+  margin: 0 0 26px 0;
+  font-family: "Jua", sans-serif;
+  font-size: 1.563em;
+  font-weight: normal;
+}
+.banner .items-box .item-top::after {
+  right: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: none;
+  width: 28px;
+  height: 28px;
+  background: url("../imgs/common/icon_arrow2.png") no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+.banner .items-box .item-center {
+  color: #fff;
+  position: relative;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.banner .items-box .item-center p {
+  width: 60%;
+  line-height: 1.8;
+  word-break: keep-all;
+  z-index: 1;
+}
+.banner .items-box .item-center img {
+  position: absolute;
+  right: -30px;
+  bottom: 0;
+}
+
+/* ----------------------------------- /
+/             메인 공통 요소            / 
+/ ----------------------------------- */
 .object {
   position: absolute;
   z-index: -2;
@@ -347,9 +425,6 @@ footer strong {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-}
-.items-box .item {
-  background-color: aqua;
 }
 .items-box .item a {
   padding: 10%;
@@ -883,6 +958,17 @@ footer strong {
     width: 100%;
   }
 
+  .banner .items-box .item:nth-child(1) img {
+    transform: scale(0.95);
+  }
+  .banner .items-box .item:nth-child(2) .item-center p {
+    width: 100%;
+  }
+  .banner .items-box .item:nth-child(2) img {
+    transform: scale(0.8);
+    right: -40px;
+  }
+
   .ft-right {
     display: block;
   }
@@ -929,6 +1015,16 @@ footer strong {
   }
   .about .items-box .item a {
     padding: 15% 10%;
+  }
+
+  .banner .items-box .item:nth-child(1) .item-center p {
+    width: 100%;
+  }
+  .banner .items-box .item:nth-child(1) img {
+    transform: scale(0.85);
+  }
+  .banner .items-box .item:nth-child(3) img {
+    transform: scale(0.8);
   }
 
   footer .inner {
@@ -1009,6 +1105,17 @@ footer strong {
     margin: 20px 0 0;
   }
 
+  .banner .items-box .item {
+    width: 100%;
+    height: 270px;
+  }
+  .banner .items-box .item + .item {
+    margin: 20px 0 0;
+  }
+  .banner .items-box .item a {
+    padding: 5%;
+  }
+
   .ft_logo {
     margin: 0 auto;
   }
@@ -1068,6 +1175,20 @@ footer strong {
   }
   .about .text .ex-text {
     margin: 10px 0 0;
+  }
+
+  .banner .items-box .item a {
+    padding: 7% 5%;
+  }
+  .banner .items-box .item-top {
+    font-size: 1.375em;
+  }
+  .banner .items-box .item-center p {
+    font-size: 0.875em;
+    line-height: 1.6;
+  }
+  .banner .items-box .item:nth-child(3) .item-center p {
+    width: 50%;
   }
 
   .ft_info {

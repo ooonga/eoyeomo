@@ -1,4 +1,6 @@
-// 상단 이동 버튼
+/* ----------------------------------- /
+/            상단 이동 버튼             / 
+/ ----------------------------------- */
 .top {
   position: fixed;
   right: 20px;
@@ -13,7 +15,9 @@
   padding: 18px 0 0;
   border-radius: 4px;
 }
-// 메인 비주얼
+/* ----------------------------------- /
+/               메인 비주얼             / 
+/ ----------------------------------- */
 .main-container {
   .inner {
     position: relative;
@@ -68,7 +72,9 @@
     }
   }
 }
-/// 2
+/* ----------------------------------- /
+/          섹션 2 어여모 안내           / 
+/ ----------------------------------- */
 .about {
   margin: 200px 0 0;
   .object {
@@ -152,7 +158,9 @@
     }
   }
 }
-/// 33
+/* ----------------------------------- /
+/           섹션 3 건강 정보            / 
+/ ----------------------------------- */
 .health {
   .object {
     display: none;
@@ -162,7 +170,68 @@
     background: linear-gradient(-145deg, #f7c2c8 15%, #cec0eb 90%);
   }
 }
-/// 공 ~~~ 텅 ~~~ 요 ~~~~ 소 ~~~~ //
+/* ----------------------------------- /
+/            섹션 4 공지사항            / 
+/ ----------------------------------- */
+.board {
+}
+/* ----------------------------------- /
+/           섹션 5 관련 링크            / 
+/ ----------------------------------- */
+.banner {
+  margin: 0 0 100px 0;
+  .items-box {
+    .item {
+      width: 32%;
+      height: 315px;
+    }
+    .item:nth-child(1) {
+      background: linear-gradient(135deg, #f6dda8 20%, #ffd5b5 80%);
+    }
+    .item:nth-child(2) {
+      background: linear-gradient(135deg, #cec0eb 20%, #c8e9ff 70%);
+    }
+    .item:nth-child(3) {
+      background: linear-gradient(135deg, #ffacc6 20%, #ffe6b2 85%);
+      img {
+        right: -10px;
+      }
+    }
+    .item-top {
+      position: relative;
+      margin: 0 0 26px 0;
+      @include usedFontJua;
+      &::after {
+        right: 0;
+        @include element(28px, 28px, 0, none);
+        background: url("../imgs/common/icon_arrow2.png") no-repeat;
+        background-size: cover;
+        z-index: 1;
+      }
+    }
+    .item-center {
+      color: #fff;
+      position: relative;
+      height: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      p {
+        width: 60%;
+        line-height: 1.8;
+        word-break: keep-all;
+        z-index: 1;
+      }
+      img {
+        position: absolute;
+        right: -30px;
+        bottom: 0;
+      }
+    }
+  }
+}
+/* ----------------------------------- /
+/             메인 공통 요소            / 
+/ ----------------------------------- */
 .object {
   position: absolute;
   z-index: -2;
@@ -186,7 +255,6 @@
   justify-content: space-between;
   align-items: center;
   .item {
-    background-color: aqua;
     a {
       @include padding(10%);
     }
