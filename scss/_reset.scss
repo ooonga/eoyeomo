@@ -30,6 +30,21 @@ body {
   font-family: $font-ko;
   font-size: 100%;
   line-height: 1.1;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
 }
 
 aside,

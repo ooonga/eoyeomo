@@ -1,3 +1,25 @@
+header {
+  position: relative;
+  z-index: 9;
+  &.active {
+    .header-top {
+      display: none;
+    }
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      .gnb {
+        line-height: 70px;
+      }
+    }
+  }
+}
+/* ------------------------------------------------ /
+/                   헤더 상단 유틸                   / 
+/ ------------------------------------------------ */
 .header-top {
   background-color: #f7f7f7;
   .util {
@@ -44,6 +66,9 @@
     }
   }
 }
+/* ------------------------------------------------ /
+/                   헤더 하단 메뉴                   / 
+/ ------------------------------------------------ */
 .header-nav {
   white-space: nowrap;
   .inner {
@@ -52,10 +77,10 @@
     align-items: center;
   }
   .logo img {
+    display: block;
     min-width: 160px !important;
   }
   .gnb-box {
-    height: 84px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,13 +93,14 @@
       background: url("../imgs/common/icon_kakao.png") no-repeat center;
     }
   }
-
+  .gnb {
+    line-height: 84px;
+  }
   .gnb > ul {
     display: flex;
   }
   .gnb-title {
     position: relative;
-    line-height: 84px;
     .depth {
       top: 98%;
       left: 50%;
@@ -98,28 +124,30 @@
   }
   .category-link > ul {
     display: flex;
+    align-items: center;
     position: relative;
   }
   .categories {
     a {
-      transition: 0.3s;
+      transition: 0.2s;
     }
     > a {
+      width: 94px;
+      height: 36px;
       color: $color_primary;
       font-size: $font-size_small;
+      line-height: 1;
       font-weight: 500;
       background-color: rgba(255, 255, 255, 0.5);
       @include border(10px 20px, 1px, $color_primary);
-      &:hover,
-      &.onDepth {
-        background-color: rgba(238, 115, 153, 0.1);
+      &:hover {
+        background-color: rgba(238, 115, 153, 0.3);
       }
     }
     .depth {
-      top: 0;
+      top: 45px;
       left: 0;
       width: 100%;
-      margin: 45px 0 0;
       font-size: $font-size_small;
       border-radius: 20px;
       @include border(10px 0, 1px, $color_primary);
@@ -132,16 +160,22 @@
         color: $color_primary;
       }
     }
-    &:hover .depth {
-      opacity: 1;
-      visibility: visible;
+    // js mouse event
+    &.on {
+      > a {
+        background-color: rgba(238, 115, 153, 0.3);
+      }
+      .depth {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
-  .categories:nth-child(1) a {
+  .categories:nth-child(1) > a {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
   }
-  .categories:nth-child(2) a {
+  .categories:nth-child(2) > a {
     margin: 0 0 0 -1px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -151,11 +185,11 @@
     opacity: 0;
     visibility: hidden;
     text-align: center;
-    transition: 0.3s;
   }
 }
-
-// 1024px 이하 햄버거 메뉴
+/* ------------------------------------------------ /
+/              1024px 이하 햄버거 버튼               / 
+/ ------------------------------------------------ */
 .mobile {
   display: none;
   .hamburger {
@@ -195,7 +229,9 @@
     }
   }
 }
-// 1024px 이하 lnb
+/* ------------------------------------------------ /
+/              1024px 이하 햄버거 버튼               / 
+/ ------------------------------------------------ */
 .aside {
   top: 0;
   right: 0;
@@ -204,6 +240,27 @@
   position: fixed;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 9;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+
+    .aside-wrap {
+      left: 0;
+    }
+    .btn-mo_close {
+      &::before {
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+    }
+  }
 }
 .btn-mo_close {
   position: absolute;
@@ -218,33 +275,34 @@
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 5px;
-    transition: 0.3s 0.3s;
+    transform: rotate(0deg);
+    transition: 0.5s 0.7s;
     opacity: 0;
-  }
-  &.open {
-    &::before {
-      opacity: 1;
-      transform: rotate(-45deg);
-    }
-    &::after {
-      opacity: 1;
-      transform: rotate(45deg);
-    }
-  }
-  &.close {
-    &::before,
-    &::after {
-      transform: rotate(0);
-    }
   }
 }
 .aside-wrap {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: #ced4da;
+    &:hover {
+      background-color: #adb5bd;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  left: -100%;
   width: 300px;
   height: 100%;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
   background-color: #fff;
+  overflow-x: hidden;
+  transition: left 0.5s linear;
   > li {
     @include padding(15px);
   }
@@ -267,11 +325,11 @@
           color: $color_black;
           border-color: $color_gray;
         }
+        &:hover {
+          color: $color_black;
+          border-color: $color_black;
+        }
       }
-    }
-    li a:hover {
-      color: $color_black;
-      border-color: $color_black;
     }
   }
   > li:nth-child(2) {
@@ -285,7 +343,7 @@
         font-size: $font-size_mobileLnb;
         line-height: 1.8;
         &:hover,
-        .activeLnb {
+        &.active {
           color: $color-moblie-hover;
         }
       }

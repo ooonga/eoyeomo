@@ -1,8 +1,13 @@
-// used font family jua
+// used font family Jua
 @mixin usedFontJua {
   font-family: "Jua", sans-serif;
   font-size: 1.563em;
   font-weight: normal;
+}
+// used font family Poppins
+@mixin usedFontPoppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 // blind
@@ -13,6 +18,14 @@
   height: 1px;
   margin: -1px;
   clip: rect(0, 0, 0, 0);
+}
+
+// ellipsis
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
 }
 
 // ::pseudo-element
@@ -46,11 +59,6 @@
   }
 }
 
-// Animation Settings & Execution
-@mixin keyframes($animationName) {
-  @content;
-}
-
 // mediaquery
 @mixin desktop {
   @media screen and (max-width:#{$desktop}) {
@@ -70,5 +78,83 @@
 @mixin otherPoint($size) {
   @media screen and (max-width:#{$size}) {
     @content;
+  }
+}
+
+// Animation Settings & Execution
+@mixin keyframes($animationName) {
+  @content;
+}
+
+@mixin animation($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@include animation(toRightfromLeft) {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes movingRnL {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes movingLnR {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes changeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes movingUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes movingUpp {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
   }
 }

@@ -1,6 +1,6 @@
-/* ----------------------------------- /
-/            상단 이동 버튼             / 
-/ ----------------------------------- */
+/* --------------------------------------------- /
+/                   상단 이동 버튼                / 
+/ --------------------------------------------- */
 .top {
   position: fixed;
   right: 20px;
@@ -14,21 +14,69 @@
   background-size: 60%;
   padding: 18px 0 0;
   border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+  }
 }
-/* ----------------------------------- /
-/               메인 비주얼             / 
-/ ----------------------------------- */
+
+/* ------------------------------------------- /
+/               컨텐츠 영역 공통                / 
+/ ------------------------------------------- */
 .main-container {
   .inner {
     position: relative;
     max-width: 1500px;
   }
 }
+.object {
+  position: absolute;
+  z-index: -1;
+}
+.text {
+  .ex-text {
+    color: $color_gray;
+    margin: 30px 0 0;
+    font-size: $font-size_small;
+    line-height: 2;
+  }
+  .section-title {
+    color: $color-title_gray;
+    font-size: 62px;
+  }
+  .section-em {
+    width: 50%;
+    font-size: 46px;
+    line-height: 1.4;
+  }
+}
+.items-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  .item {
+    a {
+      @include padding(10%);
+    }
+  }
+  .item-top {
+    color: #fff;
+    font-size: $font-size_normal;
+    line-height: 1.4;
+  }
+}
+/* ------------------------------------------- /
+/                  메인 비주얼                  / 
+/ ------------------------------------------- */
 .main-visual {
   position: relative;
   margin: -84px 0 0;
   min-height: 960px;
-  z-index: -1;
   .object {
     top: 0;
     width: 100%;
@@ -36,16 +84,17 @@
     background: url("../imgs/main/mv1.png") no-repeat;
     background-position: right top;
     background-size: auto 100%;
+    animation: movingRnL 1s linear;
   }
   .text {
+    animation: movingLnR 1s linear;
     position: absolute;
     top: 300px;
     color: $color-visual_pink;
     text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
     .visual-title {
-      font-family: $font-en;
+      @include usedFontPoppins;
       font-size: 80px;
-      font-weight: 500;
     }
     .ex-text {
       color: $color-visual_pink;
@@ -72,12 +121,13 @@
     }
   }
 }
-/* ----------------------------------- /
-/          섹션 2 어여모 안내           / 
-/ ----------------------------------- */
+/* ------------------------------------------- /
+/              섹션 2 어여모 안내               / 
+/ ------------------------------------------- */
 .about {
   margin: 200px 0 0;
   .object {
+    animation: changeScale 1s;
     top: -200px;
     left: -300px;
     width: 430px;
@@ -91,7 +141,11 @@
     justify-content: space-between;
     word-break: keep-all;
     margin: 0 0 70px;
+    .section-em {
+      animation: movingLnR 1s linear;
+    }
     .ex-text {
+      animation: movingRnL 1s linear;
       width: 50%;
       display: inline-block;
     }
@@ -101,11 +155,17 @@
       width: 23%;
       height: 290px;
       margin: 4% 0 0;
-      opacity: 0.6;
       background-size: 37px;
-      background-position: right 10% bottom 10%;
+      background-position: right 16% bottom 15%;
       background-repeat: no-repeat;
       transition: 0.3s;
+      animation: movingUp 0.5s linear;
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.3s;
+        }
+      }
+      opacity: 0.6;
     }
     .item:nth-child(1) {
       background-color: #aa8ce8;
@@ -158,28 +218,132 @@
     }
   }
 }
-/* ----------------------------------- /
-/           섹션 3 건강 정보            / 
-/ ----------------------------------- */
+/* ------------------------------------------- /
+/               섹션 3 건강 백서                / 
+/ ------------------------------------------- */
 .health {
+  z-index: 1;
+  position: relative;
+  margin: 280px 0 240px;
   .object {
-    display: none;
+    animation: changeScale 1.5s;
+    top: -150px;
+    right: -200px;
     width: 680px;
     height: 680px;
     border-radius: 50%;
     background: linear-gradient(-145deg, #f7c2c8 15%, #cec0eb 90%);
+    strong {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.7);
+      @include usedFontPoppins;
+      font-size: 60px;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+    }
+  }
+  .text {
+    margin: 0 0 80px;
+  }
+  .items-box {
+    width: 75%;
+    .item {
+      position: relative;
+      width: 30%;
+      height: 270px;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      animation: movingUp 0.5s linear;
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: $i * 0.3s;
+        }
+      }
+      a {
+        padding: 0;
+      }
+    }
+    .item-bottom {
+      position: relative;
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      padding: 20px 0 0 40px;
+      &::before {
+        @include element(26px, 2px, 29px);
+        background-color: $color_black;
+      }
+    }
   }
 }
-/* ----------------------------------- /
-/            섹션 4 공지사항            / 
-/ ----------------------------------- */
-.board {
+/* ------------------------------------------- /
+/                섹션 4 공지사항                / 
+/ ------------------------------------------- */
+.notice {
+  position: relative;
+  .object {
+    animation: movingRnL 1s linear;
+    top: -400px;
+    right: 0;
+    width: 60%;
+    height: 200%;
+    position: absolute;
+    background: url("../imgs/main/board_bg.png") no-repeat;
+    background-position: left bottom;
+  }
+  .text {
+    position: relative;
+    animation: movingLnR 1s linear;
+    .section-title {
+      @include usedFontPoppins;
+      font-size: 66px;
+      display: inline-block;
+    }
+    > a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: 0 0 0 30px;
+      background: $color-title_gray url("../imgs/common/icon_arrow1.png")
+        no-repeat center;
+      background-size: 50%;
+      border-radius: 50%;
+    }
+  }
+  .notice-items {
+    margin: 80px 0 100px;
+    display: flex;
+    .board {
+      animation: movingLnR 1s linear;
+      width: 40%;
+      min-width: 300px;
+      .board-title {
+        @include ellipsis;
+        font-size: $font-size_large;
+      }
+      .board-date {
+        margin: 30px 0 50px;
+        color: $color_gray;
+        font-size: $font-size_small;
+      }
+    }
+    .imgs {
+      animation: movingUpp 0.8s linear;
+      position: relative;
+      padding: 0 0 0 100px;
+      width: 55%;
+      background: url("../imgs/main/board_img.png") no-repeat;
+      background-size: auto 100%;
+      background-position: right bottom;
+      transform: scale(1.5);
+    }
+  }
 }
-/* ----------------------------------- /
-/           섹션 5 관련 링크            / 
-/ ----------------------------------- */
+/* ------------------------------------------- /
+/               섹션 5 관련 링크                / 
+/ ------------------------------------------- */
 .banner {
-  margin: 0 0 100px 0;
+  margin: 260px 0 160px;
   .items-box {
     .item {
       width: 32%;
@@ -227,41 +391,5 @@
         bottom: 0;
       }
     }
-  }
-}
-/* ----------------------------------- /
-/             메인 공통 요소            / 
-/ ----------------------------------- */
-.object {
-  position: absolute;
-  z-index: -2;
-}
-.text {
-  .ex-text {
-    color: $color_gray;
-    margin: 30px 0 0;
-    font-size: $font-size_small;
-    line-height: 2;
-  }
-  .section-em {
-    width: 50%;
-    font-size: 46px;
-    line-height: 1.4;
-  }
-}
-.items-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  .item {
-    a {
-      @include padding(10%);
-    }
-  }
-  .item-top {
-    color: #fff;
-    font-size: $font-size_normal;
-    line-height: 1.4;
   }
 }
