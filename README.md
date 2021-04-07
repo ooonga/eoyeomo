@@ -9,7 +9,7 @@
 3. 퍼블리싱　**100%**
 4. 지원 브라우저　**크롬** / **엣지** / **파이어폭스** / **사파리**
 5. 주요 구현  
-   -　**CSS mediaquery** + **JS matchMedia** 이용한 반응형 사이트 구현  
+   -　**CSS mediaquery** 이용한 반응형 사이트 구현  
    -　**CSS Animation** + **Vanilla JS** 사용하여 섹션 동적 구현
 
 6. 메인 페이지 링크　<a href="http://go0lee.cafe24.com/eoyeomo/index.html">`MainPage`</a>

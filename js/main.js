@@ -46,9 +46,7 @@ function scrollEvent() {
     headerFixed();
     toGoTop();
   });
-  // var jsMediaQuery = window.matchMedia('screen and (max-width: 900px)');
   // 사이즈 변경 후 버튼 추가
-    // if(jsMediaQuery.matches){
   for(let i=0; i<categories.length; i++) {
     categories[i].addEventListener('mouseenter', (e) => {
       let target = e.target;
