@@ -478,7 +478,6 @@ header.active .header-nav .gnb {
   width: 26px;
   height: 4px;
   background-color: #444;
-  right: 0;
 }
 .mobile .hamburger a > span::after {
   content: "";
@@ -487,22 +486,24 @@ header.active .header-nav .gnb {
   left: none;
   width: 14px;
   height: 4px;
-  right: 0;
   background-color: #444;
+  right: 0;
 }
 .mobile .hamburger:hover a > span::before {
-  top: -6px;
+  top: -5px;
+  right: -1px;
   width: 14px;
   animation: topRotate 0.3s forwards;
 }
 .mobile .hamburger:hover a > span::after {
-  top: 6px;
+  top: 5px;
+  right: -1px;
   width: 14px;
   animation: underRotate 0.3s forwards;
 }
 
 /* ------------------------------------------------ /
-/              1024px 이하 햄버거 버튼               / 
+/                  1024px 이하 메뉴                  / 
 / ------------------------------------------------ */
 .aside {
   top: 0;
