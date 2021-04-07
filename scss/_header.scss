@@ -217,14 +217,12 @@ header {
       a > span::before {
         top: -6px;
         width: 14px;
-        transform: rotate(45deg);
-        animation: rotate 0.3s;
+        animation: topRotate 0.3s forwards;
       }
       a > span::after {
         top: 6px;
         width: 14px;
-        transform: rotate(-45deg);
-        animation: rotate 0.3s;
+        animation: underRotate 0.3s forwards;
       }
     }
   }
@@ -246,7 +244,6 @@ header {
   &.visible {
     opacity: 1;
     visibility: visible;
-
     .aside-wrap {
       left: 0;
     }
@@ -369,10 +366,9 @@ header {
           @include element(0, 1px, 100%);
           background-color: $color-moblie-hover;
         }
-        &.on {
+        &:hover {
           &::after {
-            animation: road 0.4s;
-            width: 100%;
+            animation: hoverRod 0.3s forwards;
           }
         }
       }
@@ -444,19 +440,5 @@ header {
         font-size: $font-size_small;
       }
     }
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-}
-@keyframes road {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
   }
 }

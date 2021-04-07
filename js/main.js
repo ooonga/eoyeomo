@@ -6,7 +6,7 @@ for(let anchor=0; anchor<docuAnchor.length; anchor++) {
     });
 }
 
-// 헤더 & 풋터 스크롤 이벤트
+// 헤더 & 상단 이동 스크롤 이벤트
 function scrollEvent() {
   const header = document.querySelector('header'),
         headerMenu = header.querySelector('.header-nav'),
@@ -84,8 +84,8 @@ function mobileVisible() {
   let lnb = lnbWrap.querySelectorAll('.lnb-title');
   // 사이드 메뉴
   lnb.forEach(function(index){
-    index.addEventListener('click', (e) => {
-      const target = e.target,
+    index.addEventListener('click', () => {
+      const target = index.children[0],
             depth = target.nextElementSibling;
       if(target.className === "active") {
         target.classList.remove('active');
@@ -111,4 +111,46 @@ function mobileVisible() {
   }
 
 } mobileVisible();
-// 스크롤 이벤트
+// 스크롤 애니메이션 이벤트
+function scrollAnimation() {
+  let section = document.querySelectorAll('.section');
+
+  window.addEventListener('scroll', () => {
+    let scrollLocation = document.documentElement.scrollTop + 750; // 현재 스크롤바 위치 +750
+
+      for(let i=0; i<section.length; i++) {
+        let object = section[i].querySelector('.object'),
+            sectionTitle = section[i].querySelector('.text');
+            sectionEm = section[i].querySelector('.section-em'),
+            exText = section[i].querySelector('.ex-text')
+            board = section[i].querySelector('.board'),
+            imgs = section[i].querySelector('.imgs'),
+            item = section[i].querySelectorAll('.item');
+        if(i===0) {
+          if(section[i].offsetTop < scrollLocation) {
+            object.classList.add('chng-scale');
+            sectionEm.classList.add('mv-lnr');
+            exText.classList.add('mv-rnl');
+            for(let t=0; t<item.length; t++) {
+              item[t].classList.add('mv-forUp');
+            }
+          }
+        } else if(i===1) {
+          if(section[i].offsetTop < scrollLocation) {
+            object.classList.add('chng-scale');
+            sectionTitle.classList.add('mv-lnr');
+            for(let t=0; t<item.length; t++) {
+              item[t].classList.add('mv-forUp');
+            }
+          }
+        } else {
+          if(section[i].offsetTop < scrollLocation) {
+            object.classList.add('mv-rnl');
+            imgs.classList.add('mv-nmUp');
+            sectionTitle.classList.add('mv-lnr');
+            board.classList.add('mv-lnr');
+          }
+        }
+      }
+  })
+} scrollAnimation();

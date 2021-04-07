@@ -82,61 +82,77 @@ button {
   appearance: none;
 }
 
-@keyframes toRightfromLeft {
+@keyframes topRotate {
+  0% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+}
+@keyframes underRotate {
+  0% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-45deg);
+    opacity: 1;
+  }
+}
+@keyframes hoverRod {
   0% {
     opacity: 0;
-    transform: translateX(20px);
+    width: 0;
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    width: 100%;
   }
 }
-@keyframes movingRnL {
+@keyframes rightToLeft {
   0% {
-    opacity: 0;
     transform: translateX(30px);
+    opacity: 0;
   }
   100% {
-    opacity: 1;
     transform: translateX(0);
+    opacity: 1;
   }
 }
-@keyframes movingLnR {
+@keyframes leftToRight {
   0% {
+    transform: translateX(-40px);
     opacity: 0;
-    transform: translateX(-30px);
   }
   100% {
-    opacity: 1;
     transform: translateX(0);
+    opacity: 1;
   }
 }
-@keyframes changeScale {
+@keyframes scale {
   0% {
-    opacity: 0;
     transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes movingUp {
-  0% {
     opacity: 0;
-    transform: translateY(100px);
   }
   100% {
+    transform: scale(100%);
     opacity: 1;
-    transform: translateY(0px);
   }
 }
-@keyframes movingUpp {
+@keyframes toUp-tr {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes toUp-nm {
   0% {
     opacity: 0;
     top: 100px;
@@ -477,14 +493,12 @@ header.active .header-nav .gnb {
 .mobile .hamburger:hover a > span::before {
   top: -6px;
   width: 14px;
-  transform: rotate(45deg);
-  animation: rotate 0.3s;
+  animation: topRotate 0.3s forwards;
 }
 .mobile .hamburger:hover a > span::after {
   top: 6px;
   width: 14px;
-  transform: rotate(-45deg);
-  animation: rotate 0.3s;
+  animation: underRotate 0.3s forwards;
 }
 
 /* ------------------------------------------------ /
@@ -639,9 +653,8 @@ header.active .header-nav .gnb {
   height: 1px;
   background-color: #f6daa4;
 }
-.aside-wrap .depth > li a.on::after {
-  animation: road 0.4s;
-  width: 100%;
+.aside-wrap .depth > li a:hover::after {
+  animation: hoverRod 0.3s forwards;
 }
 .aside-wrap .category-link {
   display: flex;
@@ -716,19 +729,6 @@ header.active .header-nav .gnb {
   font-size: 0.875em;
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-}
-@keyframes road {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
 /* --------------------------------------------- /
 /                   상단 이동 버튼                / 
 / --------------------------------------------- */
@@ -764,11 +764,13 @@ header.active .header-nav .gnb {
 }
 
 .object {
+  opacity: 0;
   position: absolute;
   z-index: -1;
 }
 
 .text .ex-text {
+  opacity: 0;
   color: #999;
   margin: 30px 0 0;
   font-size: 0.875em;
@@ -779,6 +781,7 @@ header.active .header-nav .gnb {
   font-size: 62px;
 }
 .text .section-em {
+  opacity: 0;
   width: 50%;
   font-size: 46px;
   line-height: 1.4;
@@ -789,6 +792,9 @@ header.active .header-nav .gnb {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.items-box .item {
+  opacity: 0;
 }
 .items-box .item a {
   padding: 10%;
@@ -801,6 +807,45 @@ header.active .header-nav .gnb {
 }
 
 /* ------------------------------------------- /
+/            js - 애니메이션 CLASS              / 
+/ ------------------------------------------- */
+.mv-rnl {
+  animation: rightToLeft 1s forwards;
+}
+
+.mv-lnr {
+  animation: leftToRight 1s forwards;
+}
+
+.chng-scale {
+  animation: scale 1s forwards;
+}
+
+.mv-trUp {
+  animation: toUp-tr 1s forwards;
+}
+
+.mv-nmUp {
+  animation: toUp-nm 1s forwards;
+}
+
+.mv-forUp {
+  animation: toUp-tr 1s 1s forwards;
+}
+.mv-forUp:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.mv-forUp:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.mv-forUp:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.mv-forUp:nth-child(4) {
+  animation-delay: 1.6s;
+}
+
+/* ------------------------------------------- /
 /                  메인 비주얼                  / 
 / ------------------------------------------- */
 .main-visual {
@@ -809,16 +854,18 @@ header.active .header-nav .gnb {
   min-height: 960px;
 }
 .main-visual .object {
+  opacity: 0;
+  animation: rightToLeft 1s 0.6s forwards;
   top: 0;
   width: 100%;
   height: 100%;
   background: url("../imgs/main/mv1.png") no-repeat;
   background-position: right top;
   background-size: auto 100%;
-  animation: movingRnL 1s linear;
 }
 .main-visual .text {
-  animation: movingLnR 1s linear;
+  opacity: 0;
+  animation: leftToRight 1s 0.6s forwards;
   position: absolute;
   top: 300px;
   color: #ffa4c0;
@@ -864,7 +911,6 @@ header.active .header-nav .gnb {
   margin: 200px 0 0;
 }
 .about .object {
-  animation: changeScale 1s;
   top: -200px;
   left: -300px;
   width: 430px;
@@ -879,11 +925,7 @@ header.active .header-nav .gnb {
   word-break: keep-all;
   margin: 0 0 70px;
 }
-.about .text .section-em {
-  animation: movingLnR 1s linear;
-}
 .about .text .ex-text {
-  animation: movingRnL 1s linear;
   width: 50%;
   display: inline-block;
 }
@@ -895,35 +937,21 @@ header.active .header-nav .gnb {
   background-position: right 16% bottom 15%;
   background-repeat: no-repeat;
   transition: 0.3s;
-  animation: movingUp 0.5s linear;
-  opacity: 0.6;
 }
 .about .items-box .item:nth-child(1) {
-  animation-delay: 0.3s;
-}
-.about .items-box .item:nth-child(2) {
-  animation-delay: 0.6s;
-}
-.about .items-box .item:nth-child(3) {
-  animation-delay: 0.9s;
-}
-.about .items-box .item:nth-child(4) {
-  animation-delay: 1.2s;
-}
-.about .items-box .item:nth-child(1) {
-  background-color: #aa8ce8;
+  background-color: #cec0eb;
   background-image: url("../imgs/main/about_icon01.png");
 }
 .about .items-box .item:nth-child(2) {
-  background-color: #ef67a9;
+  background-color: #ebb5cf;
   background-image: url("../imgs/main/about_icon02.png");
 }
 .about .items-box .item:nth-child(3) {
-  background-color: #f2cb78;
+  background-color: #f6dda8;
   background-image: url("../imgs/main/about_icon03.png");
 }
 .about .items-box .item:nth-child(4) {
-  background-color: #7fc2eb;
+  background-color: #c5e1f2;
   background-image: url("../imgs/main/about_icon04.png");
 }
 .about .items-box span {
@@ -952,8 +980,19 @@ header.active .header-nav .gnb {
   padding: 30px 0 0;
 }
 .about .items-box .item:hover {
-  opacity: 1;
   border-bottom-right-radius: 100px;
+}
+.about .items-box .item:hover:nth-child(1) {
+  background-color: #aa8ce8;
+}
+.about .items-box .item:hover:nth-child(2) {
+  background-color: #ef67a9;
+}
+.about .items-box .item:hover:nth-child(3) {
+  background-color: #f2cb78;
+}
+.about .items-box .item:hover:nth-child(4) {
+  background-color: #7fc2eb;
 }
 .about .items-box .item:hover span::before {
   left: -1px;
@@ -973,7 +1012,6 @@ header.active .header-nav .gnb {
   margin: 280px 0 240px;
 }
 .health .object {
-  animation: changeScale 1.5s;
   top: -150px;
   right: -200px;
   width: 680px;
@@ -992,6 +1030,7 @@ header.active .header-nav .gnb {
   transform: translateY(-50%);
 }
 .health .text {
+  opacity: 0;
   margin: 0 0 80px;
 }
 .health .items-box {
@@ -1003,19 +1042,6 @@ header.active .header-nav .gnb {
   height: 270px;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  animation: movingUp 0.5s linear;
-}
-.health .items-box .item:nth-child(1) {
-  animation-delay: 0.3s;
-}
-.health .items-box .item:nth-child(2) {
-  animation-delay: 0.6s;
-}
-.health .items-box .item:nth-child(3) {
-  animation-delay: 0.9s;
-}
-.health .items-box .item:nth-child(4) {
-  animation-delay: 1.2s;
 }
 .health .items-box .item a {
   padding: 0;
@@ -1043,7 +1069,6 @@ header.active .header-nav .gnb {
   position: relative;
 }
 .notice .object {
-  animation: movingRnL 1s linear;
   top: -400px;
   right: 0;
   width: 60%;
@@ -1053,8 +1078,8 @@ header.active .header-nav .gnb {
   background-position: left bottom;
 }
 .notice .text {
+  opacity: 0;
   position: relative;
-  animation: movingLnR 1s linear;
 }
 .notice .text .section-title {
   font-family: "Poppins", sans-serif;
@@ -1076,7 +1101,7 @@ header.active .header-nav .gnb {
   display: flex;
 }
 .notice .notice-items .board {
-  animation: movingLnR 1s linear;
+  opacity: 0;
   width: 40%;
   min-width: 300px;
 }
@@ -1093,7 +1118,7 @@ header.active .header-nav .gnb {
   font-size: 0.875em;
 }
 .notice .notice-items .imgs {
-  animation: movingUpp 0.8s linear;
+  opacity: 0;
   position: relative;
   padding: 0 0 0 100px;
   width: 55%;
@@ -1110,6 +1135,7 @@ header.active .header-nav .gnb {
   margin: 260px 0 160px;
 }
 .banner .items-box .item {
+  opacity: 1;
   width: 32%;
   height: 315px;
 }

@@ -82,79 +82,37 @@
 }
 
 // Animation Settings & Execution
-@mixin keyframes($animationName) {
-  @content;
-}
-
-@mixin animation($name) {
+@mixin transform-mixin($name, $variation, $from, $to) {
   @keyframes #{$name} {
-    @content;
+    0% {
+      transform: #{$variation }($from);
+      opacity: 0;
+    }
+    100% {
+      transform: #{$variation }($to);
+      opacity: 1;
+    }
   }
 }
-
-@include animation(toRightfromLeft) {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes movingRnL {
-  0% {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+@mixin normal-mixin($name, $variation, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+      #{$variation}: $from;
+    }
+    100% {
+      opacity: 1;
+      #{$variation}: $to;
+    }
   }
 }
-@keyframes movingLnR {
-  0% {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes changeScale {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes movingUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-@keyframes movingUpp {
-  0% {
-    opacity: 0;
-    top: 100px;
-  }
-  100% {
-    opacity: 1;
-    top: 0;
-  }
-}
+/// header contents
+@include transform-mixin(topRotate, rotate, 360deg, 45deg);
+@include transform-mixin(underRotate, rotate, 360deg, -45deg);
+@include normal-mixin(hoverRod, width, 0, 100%);
+/// main contents
+@include transform-mixin(rightToLeft, translateX, 30px, 0);
+@include transform-mixin(leftToRight, translateX, -40px, 0);
+@include transform-mixin(scale, scale, 0, 100%);
+@include transform-mixin(toUp-tr, translateY, 100px, 0);
+@include normal-mixin(toUp-nm, top, 100px, 0);

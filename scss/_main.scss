@@ -34,11 +34,13 @@
   }
 }
 .object {
+  opacity: 0;
   position: absolute;
   z-index: -1;
 }
 .text {
   .ex-text {
+    opacity: 0;
     color: $color_gray;
     margin: 30px 0 0;
     font-size: $font-size_small;
@@ -49,6 +51,7 @@
     font-size: 62px;
   }
   .section-em {
+    opacity: 0;
     width: 50%;
     font-size: 46px;
     line-height: 1.4;
@@ -60,6 +63,7 @@
   justify-content: space-between;
   align-items: center;
   .item {
+    opacity: 0;
     a {
       @include padding(10%);
     }
@@ -71,6 +75,32 @@
   }
 }
 /* ------------------------------------------- /
+/            js - 애니메이션 CLASS              / 
+/ ------------------------------------------- */
+.mv-rnl {
+  animation: rightToLeft 1s forwards;
+}
+.mv-lnr {
+  animation: leftToRight 1s forwards;
+}
+.chng-scale {
+  animation: scale 1s forwards;
+}
+.mv-trUp {
+  animation: toUp-tr 1s forwards;
+}
+.mv-nmUp {
+  animation: toUp-nm 1s forwards;
+}
+.mv-forUp {
+  animation: toUp-tr 1s 1s forwards;
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.4s;
+    }
+  }
+}
+/* ------------------------------------------- /
 /                  메인 비주얼                  / 
 / ------------------------------------------- */
 .main-visual {
@@ -78,16 +108,18 @@
   margin: -84px 0 0;
   min-height: 960px;
   .object {
+    opacity: 0;
+    animation: rightToLeft 1s 0.6s forwards;
     top: 0;
     width: 100%;
     height: 100%;
     background: url("../imgs/main/mv1.png") no-repeat;
     background-position: right top;
     background-size: auto 100%;
-    animation: movingRnL 1s linear;
   }
   .text {
-    animation: movingLnR 1s linear;
+    opacity: 0;
+    animation: leftToRight 1s 0.6s forwards;
     position: absolute;
     top: 300px;
     color: $color-visual_pink;
@@ -127,7 +159,6 @@
 .about {
   margin: 200px 0 0;
   .object {
-    animation: changeScale 1s;
     top: -200px;
     left: -300px;
     width: 430px;
@@ -141,11 +172,7 @@
     justify-content: space-between;
     word-break: keep-all;
     margin: 0 0 70px;
-    .section-em {
-      animation: movingLnR 1s linear;
-    }
     .ex-text {
-      animation: movingRnL 1s linear;
       width: 50%;
       display: inline-block;
     }
@@ -159,28 +186,21 @@
       background-position: right 16% bottom 15%;
       background-repeat: no-repeat;
       transition: 0.3s;
-      animation: movingUp 0.5s linear;
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-          animation-delay: $i * 0.3s;
-        }
-      }
-      opacity: 0.6;
     }
     .item:nth-child(1) {
-      background-color: #aa8ce8;
+      background-color: #cec0eb;
       background-image: url("../imgs/main/about_icon01.png");
     }
     .item:nth-child(2) {
-      background-color: #ef67a9;
+      background-color: #ebb5cf;
       background-image: url("../imgs/main/about_icon02.png");
     }
     .item:nth-child(3) {
-      background-color: #f2cb78;
+      background-color: #f6dda8;
       background-image: url("../imgs/main/about_icon03.png");
     }
     .item:nth-child(4) {
-      background-color: #7fc2eb;
+      background-color: #c5e1f2;
       background-image: url("../imgs/main/about_icon04.png");
     }
     span {
@@ -205,7 +225,18 @@
       padding: 30px 0 0;
     }
     .item:hover {
-      opacity: 1;
+      &:nth-child(1) {
+        background-color: #aa8ce8;
+      }
+      &:nth-child(2) {
+        background-color: #ef67a9;
+      }
+      &:nth-child(3) {
+        background-color: #f2cb78;
+      }
+      &:nth-child(4) {
+        background-color: #7fc2eb;
+      }
       border-bottom-right-radius: 100px;
       span::before {
         left: -1px;
@@ -226,7 +257,6 @@
   position: relative;
   margin: 280px 0 240px;
   .object {
-    animation: changeScale 1.5s;
     top: -150px;
     right: -200px;
     width: 680px;
@@ -244,6 +274,7 @@
     }
   }
   .text {
+    opacity: 0;
     margin: 0 0 80px;
   }
   .items-box {
@@ -254,12 +285,6 @@
       height: 270px;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      animation: movingUp 0.5s linear;
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-          animation-delay: $i * 0.3s;
-        }
-      }
       a {
         padding: 0;
       }
@@ -282,7 +307,6 @@
 .notice {
   position: relative;
   .object {
-    animation: movingRnL 1s linear;
     top: -400px;
     right: 0;
     width: 60%;
@@ -292,8 +316,8 @@
     background-position: left bottom;
   }
   .text {
+    opacity: 0;
     position: relative;
-    animation: movingLnR 1s linear;
     .section-title {
       @include usedFontPoppins;
       font-size: 66px;
@@ -314,7 +338,7 @@
     margin: 80px 0 100px;
     display: flex;
     .board {
-      animation: movingLnR 1s linear;
+      opacity: 0;
       width: 40%;
       min-width: 300px;
       .board-title {
@@ -328,7 +352,7 @@
       }
     }
     .imgs {
-      animation: movingUpp 0.8s linear;
+      opacity: 0;
       position: relative;
       padding: 0 0 0 100px;
       width: 55%;
@@ -346,6 +370,7 @@
   margin: 260px 0 160px;
   .items-box {
     .item {
+      opacity: 1;
       width: 32%;
       height: 315px;
     }
